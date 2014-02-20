@@ -29,6 +29,9 @@
 .remove-control{
   width: 25px;
 }
+.remove-new-control{
+  @extend .remove-control;
+}
 
 .appointment-details {
   background: $secondaryColor;
@@ -50,4 +53,13 @@
   padding: 5px 10px;
 
   @include borderRadius(5px);
+}
+
+.appointment-form{
+  @extend .appointment;
+  @extend .appointment-overview;
+  display: none;
+  text-align: left;
+
+
 }

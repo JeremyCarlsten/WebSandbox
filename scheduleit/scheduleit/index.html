@@ -58,6 +58,7 @@
                 <div class="appointment-overview">
                     <img class="remove-control" src="images/remove.png"/>
                     <img class="dropdown-control" src="images/arrowheadLeft.png"/>
+
                     <p>11:00am PatientXYZ</p>
                 </div>
                 <div class="appointment-details">
@@ -72,6 +73,7 @@
                 <div class="appointment-overview">
                     <img class="remove-control" src="images/remove.png"/>
                     <img class="dropdown-control" src="images/arrowheadLeft.png"/>
+
                     <p>11:00am PatientABC</p>
                 </div>
                 <div class="appointment-details">
@@ -85,62 +87,42 @@
         </div>
         <div class="page-controls">
             <button class="add-appointment">Add Appointment</button>
+            <form class="appointment-form">
+                <img class="remove-new-control" src="images/remove.png"/>
+                <ul>
+                    <li>
+                        <label for="name">Name: </label>
+                        <input type="text" name="name" id="new-appointment-name" placeholder="John Doe"/>
+                    </li>
+                    <li>
+                        <label for="email">Email: </label>
+                        <input type="email" name="email" id="new-appointment-email" placeholder="johndoe@email.com"/>
+                    </li>
+                    <li>
+                        <label for="phone">phone: </label>
+                        <input type="text" name="phone" id="new-appointment-phone" placeholder="(123) 456-7890"/>
+                    </li>
+                    <li>
+                        <label for="time">Time: </label>
+                        <input type="text" name="time" id="new-appointment-time" placeholder="10:00"/>
+                        <select id="new-appointment-am-pm">
+                            <option value="am">AM</option>
+                            <option value="pm">PM</option>
+                        </select>
+                    </li>
+                    <button class="add-it"> Add It</button>
+                </ul>
+            </form>
         </div>
     </section>
 </div>
+<script type="text/javascript" src="js/appointments.js"></script>
+
 <script type="text/javascript">
-    function buildDummyAppointment(){
-        var appointment = $('<div class="appointment"></div>');
-
-        var randomNumber = Math.round((Math.random() * 10) + 1);
-        appointment.append('<div class="appointment-overview"></div>');
-        appointment.find('.appointment-overview').append('<img class="remove-control" src="images/remove.png"/>');
-        appointment.find('.appointment-overview').append('<img class=" dropdown-control" src="images/arrowheadLeft.png"/>');
-        appointment.find('.appointment-overview').append('<p>'+randomNumber+':00am Patient'+ randomNumber + 1 +'</p>');
-
-        appointment.append('<div class="appointment-details"></div>');
-        appointment.find('.appointment-details').append('<ul></ul>');
-        appointment.find('.appointment-details ul').append('<li>Full Name: Patient X Xavior</li>');
-        appointment.find('.appointment-details ul').append('<li>Phone Number: (123) 456-0987</li>');
-        appointment.find('.appointment-details ul').append('<li>Email Address: PatientXYZ@email.com</li>');
-
-        return appointment;
-    }
-
     $(document).ready(function () {
         $("#main-sidebar li").tooltips();
-
-        $("#appointments").on('click','.dropdown-control', function () {
-            $(this).closest('.appointment').find('.appointment-details').slideToggle('normal');
-            var currentSrc = $(this).attr('src');
-            if (currentSrc.toLowerCase().indexOf('arrowheadleft') >= 0) {
-                $(this).fadeOut("fast", function () {
-                    $(this).attr('src', currentSrc.replace("arrowheadLeft", "arrowheadDown")).fadeIn("fast");
-                });
-            } else {
-                $(this).fadeOut("fast", function () {
-                    $(this).attr('src', currentSrc.replace("arrowheadDown", "arrowheadLeft")).fadeIn("fast");
-                });
-            }
-        });
-
-        $("#appointments").on('click','.remove-control', function(){
-            var conf = confirm("You are about to remove this appointment. \n Proceed? ");
-
-            if(conf == true){
-                $(this).closest('.appointment').remove();
-            }
-        });
-
-        $(".add-appointment").on('click', function(){
-
-
-            $('#appointments').append(buildDummyAppointment());
-            $.bind('click')
-        });
-
-
     });
+
 </script>
 </body>
 </html>

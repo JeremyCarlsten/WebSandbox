@@ -2,11 +2,11 @@
   margin-top: 50px;
   text-align: left; }
 
-.appointment {
+.appointment, .appointment-form {
   margin: 10px;
   width: 100%; }
 
-.appointment-overview {
+.appointment-overview, .appointment-form {
   background-color: #BADA55;
   border: 1px solid #a6c654;
   overflow: hidden;
@@ -16,13 +16,13 @@
   -moz-border-radius: 5px;
   -o-border-radius: 5px; }
 
-.remove-control, .dropdown-control {
+.remove-control, .remove-new-control, .dropdown-control {
   display: block;
   float: right;
   width: 15px;
   vertical-align: center; }
 
-.remove-control {
+.remove-control, .remove-new-control {
   width: 25px; }
 
 .appointment-details {
@@ -59,3 +59,7 @@
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -o-border-radius: 5px; }
+
+.appointment-form {
+  display: none;
+  text-align: left; }
