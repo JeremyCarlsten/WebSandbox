@@ -58,6 +58,7 @@
                 <div class="appointment-overview">
                     <img class="remove-control" src="images/remove.png"/>
                     <img class="dropdown-control" src="images/arrowheadLeft.png"/>
+
                     <p>11:00am PatientXYZ</p>
                 </div>
                 <div class="appointment-details">
@@ -72,6 +73,7 @@
                 <div class="appointment-overview">
                     <img class="remove-control" src="images/remove.png"/>
                     <img class="dropdown-control" src="images/arrowheadLeft.png"/>
+
                     <p>11:00am PatientABC</p>
                 </div>
                 <div class="appointment-details">
@@ -89,14 +91,14 @@
     </section>
 </div>
 <script type="text/javascript">
-    function buildDummyAppointment(){
+    function buildDummyAppointment() {
         var appointment = $('<div class="appointment"></div>');
 
         var randomNumber = Math.round((Math.random() * 10) + 1);
         appointment.append('<div class="appointment-overview"></div>');
         appointment.find('.appointment-overview').append('<img class="remove-control" src="images/remove.png"/>');
         appointment.find('.appointment-overview').append('<img class=" dropdown-control" src="images/arrowheadLeft.png"/>');
-        appointment.find('.appointment-overview').append('<p>'+randomNumber+':00am Patient'+ randomNumber + 1 +'</p>');
+        appointment.find('.appointment-overview').append('<p>' + randomNumber + ':00am Patient' + randomNumber + 1 + '</p>');
 
         appointment.append('<div class="appointment-details"></div>');
         appointment.find('.appointment-details').append('<ul></ul>');
@@ -107,10 +109,29 @@
         return appointment;
     }
 
+    function appointmentInterface(appointmentButton) {
+        $appointmentForm = $('<form class="appointment-form"></form>');
+        $appointmentForm.append('<img class="remove-new-control" src="images/remove.png"/>');
+        $appointmentForm.append('<ul></ul>');
+        $appointmentForm.find('ul').append('<li></li>');
+        $appointmentForm.find('ul li').append('<label for="name">Name: </label><input type="text" name="name" placeholder="John Doe"/>');
+        $appointmentForm.find('ul').append('<li></li>');
+        $appointmentForm.find('ul li:nth-child(2)').append('<label for="email">Email: </label><input type="email" name="email" placeholder="johndoe@email.com"/>');
+        $appointmentForm.find('ul').append('<li></li>');
+        $appointmentForm.find('ul li:nth-child(3)').append('<label for="phone">phone: </label><input type="text" name="phone" placeholder="(123) 456-7890"/>');
+        $appointmentForm.find('ul').append('<li></li>');
+        $appointmentForm.find('ul li:nth-child(4)').append('<label for="time">Time: </label><input type="text" name="time" placeholder="10:00"/><select><option value="am">AM</option><option value="pm">PM</option></select>');
+        $appointmentForm.append('<button class="add-it"> Add It </button>');
+
+        appointmentButton.fadeOut('normal', function () {
+            $('.page-controls').append($appointmentForm).fadeIn('normal');
+        });
+    }
+
     $(document).ready(function () {
         $("#main-sidebar li").tooltips();
 
-        $("#appointments").on('click','.dropdown-control', function () {
+        $("#appointments").on('click', '.dropdown-control', function () {
             $(this).closest('.appointment').find('.appointment-details').slideToggle('normal');
             var currentSrc = $(this).attr('src');
             if (currentSrc.toLowerCase().indexOf('arrowheadleft') >= 0) {
@@ -124,19 +145,27 @@
             }
         });
 
-        $("#appointments").on('click','.remove-control', function(){
+        $("#appointments").on('click', '.remove-control', function () {
             var conf = confirm("You are about to remove this appointment. \n Proceed? ");
 
-            if(conf == true){
+            if (conf == true) {
                 $(this).closest('.appointment').remove();
             }
         });
+        $(".page-controls").on('click', '.remove-new-control', function () {
+//            var conf = confirm("You are about to cancel this appointment. \n Proceed? ");
 
-        $(".add-appointment").on('click', function(){
+//            if (conf == true) {
+                $(this).closest('.appointment-form').fadeOut('normal', function(){
+                    $(this).find('.add-appointment').fadeIn('fast');
+                }).remove();
+//            }
+        });
 
-
-            $('#appointments').append(buildDummyAppointment());
-            $.bind('click')
+        $(".add-appointment").on('click', function (e) {
+            e.preventDefault();
+            appointmentInterface($(this));
+//            $('#appointments').append(buildDummyAppointment());
         });
 
 
