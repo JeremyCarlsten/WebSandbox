@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ScheduleIt</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/libs/tooltip.css"/>
+    <link rel="stylesheet" href="css/pages/appointmentsPage.css"/>
+
+    <script src="js/libs/jquery-2.1.0.min.js"></script>
+    <script src="js/tooltips.js"></script>
+</head>
+<body>
+<div class="user-settings">
+    <p><a class="logout" href="#">Logout</a> | <a class="my-profile" href="#">My Profile</a></p>
+</div>
+<aside id="main-sidebar">
+    <h1>SI</h1>
+    <ul>
+        <li title="Home">
+            <a href="#">
+                <img class="navigation-image" src="images/home.png" alt="Home"/>
+            </a>
+        </li>
+        <li title="Appointments">
+            <a href="#">
+                <img class="navigation-image" src="images/calendar.png" alt="Appointments"/>
+            </a>
+        </li>
+        <li title="Settings">
+            <a href="#">
+                <img class="navigation-image" src="images/settings.png" alt="Settings"/>
+            </a>
+        </li>
+        <li title="Contact">
+            <a href="#">
+                <img class="navigation-image" src="images/email.png" alt="Contact"/>
+            </a>
+        </li>
+    </ul>
+</aside>
+<div class="page-wrap">
+    <header class="main-header">
+        <div class="pagenation">
+            <a href="#" class="previous"> <- Yesterday</a>
+            <a href="#" class="next">Tomorrow -></a>
+        </div>
+        <div class="date-header">
+            <h1 class="day">Friday</h1>
+            <span class="year">2014</span>
+            <span class="month">Dec</span>
+        </div>
+        <div class="clear-both"></div>
+    </header>
+    <section>
+        <div id="appointments">
+            <div class="appointment">
+                <div class="appointment-overview">
+                    <img class="remove-control" src="images/remove.png"/>
+                    <img class="dropdown-control" src="images/arrowheadLeft.png"/>
+                    <p>11:00am PatientXYZ</p>
+                </div>
+                <div class="appointment-details">
+                    <ul>
+                        <li>Full Name: Patient X Xavior</li>
+                        <li>Phone Number: (123) 456-0987</li>
+                        <li>Email Address: PatientXYZ@email.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="appointment">
+                <div class="appointment-overview">
+                    <img class="remove-control" src="images/remove.png"/>
+                    <img class="dropdown-control" src="images/arrowheadLeft.png"/>
+                    <p>11:00am PatientABC</p>
+                </div>
+                <div class="appointment-details">
+                    <ul>
+                        <li>Full Name: Patient A BC</li>
+                        <li>Phone Number: (123) 456-7890</li>
+                        <li>Email Address: Patientabc@email.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-controls">
+            <button class="add-appointment">Add Appointment</button>
+        </div>
+    </section>
+</div>
+<script type="text/javascript">
+    function buildDummyAppointment(){
+        var appointment = $('<div class="appointment"></div>');
+
+        var randomNumber = Math.round((Math.random() * 10) + 1);
+        appointment.append('<div class="appointment-overview"></div>');
+        appointment.find('.appointment-overview').append('<img class="remove-control" src="images/remove.png"/>');
+        appointment.find('.appointment-overview').append('<img class=" dropdown-control" src="images/arrowheadLeft.png"/>');
+        appointment.find('.appointment-overview').append('<p>'+randomNumber+':00am Patient'+ randomNumber + 1 +'</p>');
+
+        appointment.append('<div class="appointment-details"></div>');
+        appointment.find('.appointment-details').append('<ul></ul>');
+        appointment.find('.appointment-details ul').append('<li>Full Name: Patient X Xavior</li>');
+        appointment.find('.appointment-details ul').append('<li>Phone Number: (123) 456-0987</li>');
+        appointment.find('.appointment-details ul').append('<li>Email Address: PatientXYZ@email.com</li>');
+
+        return appointment;
+    }
+
+    $(document).ready(function () {
+        $("#main-sidebar li").tooltips();
+
+        $("#appointments").on('click','.dropdown-control', function () {
+            $(this).closest('.appointment').find('.appointment-details').slideToggle('normal');
+            var currentSrc = $(this).attr('src');
+            if (currentSrc.toLowerCase().indexOf('arrowheadleft') >= 0) {
+                $(this).fadeOut("fast", function () {
+                    $(this).attr('src', currentSrc.replace("arrowheadLeft", "arrowheadDown")).fadeIn("fast");
+                });
+            } else {
+                $(this).fadeOut("fast", function () {
+                    $(this).attr('src', currentSrc.replace("arrowheadDown", "arrowheadLeft")).fadeIn("fast");
+                });
+            }
+        });
+
+        $("#appointments").on('click','.remove-control', function(){
+            var conf = confirm("You are about to remove this appointment. \n Proceed? ");
+
+            if(conf == true){
+                $(this).closest('.appointment').remove();
+            }
+        });
+
+        $(".add-appointment").on('click', function(){
+
+
+            $('#appointments').append(buildDummyAppointment());
+            $.bind('click')
+        });
+
+
+    });
+</script>
+</body>
+</html>

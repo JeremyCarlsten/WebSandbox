@@ -1,0 +1,53 @@
+@import "../_mixins";
+
+#appointments {
+  margin-top: 50px;
+  text-align: left;
+}
+
+.appointment {
+  margin: 10px;
+  width: 100%;
+}
+
+.appointment-overview {
+  background-color: #BADA55;
+  border: 1px solid $secondaryColor;
+  overflow: hidden;
+  padding: 5px;
+
+  @include borderRadius(5px);
+}
+
+.remove-control, .dropdown-control {
+  display: block;
+  float: right;
+  width: 15px;
+  vertical-align: center;
+}
+
+.remove-control{
+  width: 25px;
+}
+
+.appointment-details {
+  background: $secondaryColor;
+  display: none;
+  margin: 0px auto 0px auto;
+
+  padding: 10px;
+  width: 93%;
+
+  @include borderRadiusAllCorners(0px, 0px, 5px, 5px);
+}
+
+.add-appointment{
+  background: $primaryColor;
+  border: 1px solid $secondaryColor;
+  float: left;
+  outline: none;
+  margin-left: 10px;
+  padding: 5px 10px;
+
+  @include borderRadius(5px);
+}

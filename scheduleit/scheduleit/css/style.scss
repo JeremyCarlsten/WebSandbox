@@ -1,0 +1,145 @@
+@import 'reset';
+@import 'mixins';
+
+/********************************************************************************
+  GLOBAL STYLES
+********************************************************************************/
+
+body, html {
+  background: #ffffff;
+  color: $mainTextColor;
+  height: 98%;
+  margin: 0px;
+  padding: 0px;
+  font-size: 87.5%;
+  font-family: verdana, tahoma, arial, sans-serif;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.clear-both{
+  clear: both;
+}
+
+.page-wrap {
+  margin: 30px auto;
+  text-align: center;
+  width: 75%;
+}
+
+.user-settings{
+  float: right;
+  position:relative;
+  top: - 20px;
+  right: 7px;
+}
+
+.pagenation a {
+  border-bottom: 3px solid $primaryColor;
+  color: $mainTextColor;
+  text-decoration: none;
+  font-size: 150%;
+  margin-top: 30px;
+}
+.pagenation a:hover{
+  border-bottom: none;
+  color: $primaryColor;
+}
+
+.previous {
+  float: left;
+}
+
+.next {
+  float: right;
+}
+
+/********************************************************************************
+  Navigation
+********************************************************************************/
+
+#main-sidebar {
+  background-color: $primaryColor;
+  border-right: 1px solid $secondaryColor;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  text-align: center;
+  width: 50px;
+
+  ul {
+    margin-top: 50px;
+  }
+
+  h1 {
+    font-size: 210%;
+    font-weight: bold;
+    font-family: serif Georgia, serif;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .navigation-meta {
+    display: none;
+    position: relative;
+    top: -23px;
+    right: 0px;
+    float: right;
+    color: $mainTextColor;
+  }
+}
+
+.navigation-image {
+  width: 30px;
+  margin-top: 10px;
+}
+
+#main-sidebar li:hover {
+  background-color: $secondaryColor;
+  width: 110%;
+  transition: all .1s ease;
+
+  -webkit-transition: all .1s ease;
+  -moz-transition: all .1s ease;
+  -o-transition: all .1s ease;
+
+  .navigation-image {
+    position: relative;
+    right: 3px;
+  }
+}
+
+
+/********************************************************************************
+  HEADERS
+********************************************************************************/
+
+.date-header {
+  color: $primaryColor;
+  display: block;
+  margin: 0 auto;
+  width: 230px;
+}
+
+.day {
+  font-size: 400%;
+  font-weight: bold;
+  float: left;
+}
+
+.month, .year {
+  display: block;
+  float: right;
+  font-size: 110%;
+  position: relative;
+  top: 30px;
+  @include rotateCenter(-90deg);
+}
+
+.year{
+  position: relative;
+  left: -15px;
+}
+

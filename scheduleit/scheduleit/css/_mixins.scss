@@ -1,0 +1,42 @@
+$mainTextColor: #000000;
+$primaryColor: #BADA55;
+$secondaryColor: #A6C654;
+
+
+@mixin borderRadiusAllCorners($topLeftRadius,$topRightRadius,$bottomRightRadius,$bottomLeftRadius) {
+   border-top-left-radius: $topLeftRadius;
+  border-top-right-radius: $topRightRadius;
+  border-bottom-right-radius: $bottomRightRadius;
+  border-bottom-left-radius: $bottomLeftRadius;
+
+  -moz-border-top-left-radius: $topLeftRadius;
+  -moz-border-top-right-radius: $topRightRadius;
+  -moz-border-bottom-right-radius: $bottomRightRadius;
+  -moz-border-bottom-left-radius: $bottomLeftRadius;
+
+  -o-border-top-left-radius: $topLeftRadius;
+  -o-border-top-right-radius: $topRightRadius;
+  -o-border-bottom-right-radius: $bottomRightRadius;
+  -o-border-bottom-left-radius: $bottomLeftRadius;
+
+  -webkit-border-top-left-radius: $topLeftRadius;
+  -webkit-border-top-right-radius: $topRightRadius;
+  -webkit-border-bottom-right-radius: $bottomRightRadius;
+  -webkit-border-bottom-left-radius: $bottomLeftRadius;
+}
+
+@mixin borderRadius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -o-border-radius: $radius;
+}
+
+@mixin rotateCenter($degrees) {
+  transform-origin: center;
+  transform: rotate($degrees);
+  -ms-transform:rotate($degrees);
+  -webkit-transform: rotate($degrees);
+  -moz-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+}
