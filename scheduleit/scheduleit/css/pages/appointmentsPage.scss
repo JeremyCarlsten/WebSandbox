@@ -58,6 +58,7 @@
 .appointment-form{
   @extend .appointment;
   @extend .appointment-overview;
+
   display: none;
   text-align: left;
 
