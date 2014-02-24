@@ -7,7 +7,7 @@
     opacity: 0;
     display: inline-block;
     position: absolute;
-    padding: 5px 10px;
+    padding: 7px 7px;
     color: white;
     border-radius: 5px;
     margin-right: 20px;
@@ -16,32 +16,26 @@
     font-stretch: condensed;
     text-decoration: none;
     text-transform: uppercase;
-    box-shadow: 0 0 7px black;
 }
 
 .arrow {
-    width: 50px;
-    height: 10px;
+    width: 23px;
+    height: 40px;
     overflow: hidden;
     position: absolute;
-    left: 50%;
+    left: 13px;
     margin-left: -35px;
-    bottom: -10px;
+    bottom: 0px;
 }
 
 .arrow:after {
     content: "";
     position: absolute;
     left: 20px;
-    top: -20px;
-    width: 25px;
-    height: 25px;
-    -webkit-box-shadow: 6px 5px 9px -9px black,
-    5px 6px 9px -9px black;
-    -moz-box-shadow: 6px 5px 9px -9px black,
-    5px 6px 9px -9px black;
-    box-shadow: 6px 5px 9px -9px black,
-    5px 6px 9px -9px black;
+    top: 21px;
+    width: 15px;
+    height: 15px;
+
     -webkit-transform: rotate(45deg);
     -moz-transform:    rotate(45deg);
     -ms-transform:     rotate(45deg);
