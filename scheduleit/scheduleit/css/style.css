@@ -110,13 +110,6 @@ body, html {
     font-family: serif Georgia, serif; }
   #main-sidebar a {
     text-decoration: none; }
-  #main-sidebar .navigation-meta {
-    display: none;
-    position: relative;
-    top: -23px;
-    right: 0px;
-    float: right;
-    color: black; }
 
 .navigation-image {
   width: 30px;

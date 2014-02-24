@@ -89,26 +89,32 @@
             <button class="add-appointment">Add Appointment</button>
             <form class="appointment-form">
                 <img class="remove-new-control" src="images/remove.png"/>
+                <h4>New Patient Information</h4>
                 <ul>
                     <li>
-                        <label for="name">Name: </label>
-                        <input type="text" name="name" id="new-appointment-name" placeholder="John Doe"/>
+                        <span class="row-one-input">
+                            <label for="name">Name: </label>
+                            <input type="text" name="name" id="new-appointment-name" placeholder="John Doe"/>
+                        </span>
+                        <span class="row-two-input">
+                            <label for="phone">Phone: </label>
+                            <input type="text" name="phone" id="new-appointment-phone" placeholder="(123) 456-7890"/>
+                        </span>
                     </li>
                     <li>
-                        <label for="email">Email: </label>
-                        <input type="email" name="email" id="new-appointment-email" placeholder="johndoe@email.com"/>
-                    </li>
-                    <li>
-                        <label for="phone">phone: </label>
-                        <input type="text" name="phone" id="new-appointment-phone" placeholder="(123) 456-7890"/>
-                    </li>
-                    <li>
-                        <label for="time">Time: </label>
-                        <input type="text" name="time" id="new-appointment-time" placeholder="10:00"/>
-                        <select id="new-appointment-am-pm">
-                            <option value="am">AM</option>
-                            <option value="pm">PM</option>
-                        </select>
+                        <span class="row-one-input">
+                            <label for="email">Email: </label>
+                            <input type="email" name="email" id="new-appointment-email"
+                                   placeholder="johndoe@email.com"/>
+                        </span>
+                        <span class="row-two-input">
+                            <label for="time">Time: </label>
+                            <input type="text" name="time" id="new-appointment-time" placeholder="10:00"/>
+                            <select id="new-appointment-am-pm">
+                                <option value="am">AM</option>
+                                <option value="pm">PM</option>
+                            </select>
+                        </span>
                     </li>
                     <button class="add-it"> Add It</button>
                 </ul>

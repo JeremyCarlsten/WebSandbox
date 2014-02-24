@@ -1,6 +1,7 @@
 $mainTextColor: #000000;
 $primaryColor: #BADA55;
 $secondaryColor: #A6C654;
+$errorColor: #FF0000;
 
 
 @mixin borderRadiusAllCorners($topLeftRadius,$topRightRadius,$bottomRightRadius,$bottomLeftRadius) {
